@@ -163,6 +163,18 @@
                 },
             },
 
+            created:function() {
+                fetch('http://localhost:3000/collection/products').then(
+                function (response) {
+                response.json().then(
+                   function (json) {
+                   // save the returned JSON object to 'product'
+                   clubstore.products = json;
+                   
+                });
+                })
+                },
+
             
             
                
