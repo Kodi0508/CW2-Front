@@ -164,7 +164,7 @@
             },
 
             created:function() {
-                fetch('http://localhost:3000/collection/products').then(
+                fetch(' https://cst3145-cw2-heroku.herokuapp.com/collection/products').then(
                 function (response) {
                 response.json().then(
                    function (json) {
@@ -206,7 +206,7 @@
                     this.myArray.push(newProduct)
                     }
 
-                    fetch('http://localhost:3000/collection/orders', {
+                    fetch(' https://cst3145-cw2-heroku.herokuapp.com/collection/orders', {
                     method: 'POST', // set the HTTP method as 'POST'
                     headers: {
                     'Content-Type': 'application/json', // set the data type as JSON
@@ -220,7 +220,7 @@
                     var newProduct = { availableInventory: clubstore.cart[i].availableInventory - clubstore.cart[i].addedSpaces};
                     var lessonID = {lesson : clubstore.cart[i]._id};
                     lesson = clubstore.cart[i]._id;
-                    fetch('http://localhost:3000/collection/products/'+lesson+'', {
+                    fetch(' https://cst3145-cw2-heroku.herokuapp.com/collection/products/'+lesson+'', {
                     method: 'PUT',
                     headers: {
                     'Content-Type': 'application/json', 
