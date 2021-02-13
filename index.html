@@ -214,11 +214,20 @@
                 
                 body: JSON.stringify(this.myArray), // need to stringify the JSON object
                 
-                })      
-                    
-                    
-            
+                })     
                 
+                for(var i = 0; i < clubstore.cart.length; i++){      
+                    var newProduct = { availableInventory: clubstore.cart[i].availableInventory - clubstore.cart[i].addedSpaces};
+                    var lessonID = {lesson : clubstore.cart[i]._id};
+                    lesson = clubstore.cart[i]._id;
+                    fetch('http://localhost:3000/collection/products/'+lesson+'', {
+                    method: 'PUT',
+                    headers: {
+                    'Content-Type': 'application/json', 
+                },
+                body: JSON.stringify(newProduct),
+                })
+                }
          
                 }, 
                 
