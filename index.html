@@ -200,7 +200,21 @@
                 },
                 submitForm(product) {
                     
-                        
+                    for(var i = 0; i < clubstore.cart.length; i++){       
+                    var newProduct = { name: this.order.name, number: this.order.number, title: clubstore.cart[i].id, availableInventory: clubstore.cart[i].availableInventory - clubstore.cart[i].addedSpaces};
+                    
+                    this.myArray.push(newProduct)
+                    }
+
+                    fetch('http://localhost:3000/collection/orders', {
+                    method: 'POST', // set the HTTP method as 'POST'
+                    headers: {
+                    'Content-Type': 'application/json', // set the data type as JSON
+                },
+                
+                body: JSON.stringify(this.myArray), // need to stringify the JSON object
+                
+                })      
                     
                     
             
